@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->char('nisn',10 );
-            $table->char('nis',8 );
-            $table->string('nama', 35);
-            $table->foreignId('id_kelas')->constrained('kelas')->cascadeOnDelete();
-            $table->text('alamat');
-            $table->string('no_telp', 13);
-            $table->foreignId('id_spp')->constrained('spps')->cascadeOnDelete();
+            $table->char('nisn',10 )->nullable();
+            $table->char('nis',8 )->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->foreignId('id_kelas')->nullable()->constrained('kelas')->cascadeOnDelete();
+            $table->text('alamat')->nullable();
+            $table->string('no_telp', 13)->nullable();
+            $table->foreignId('id_spp')->nullable()->constrained('spps')->cascadeOnDelete();
             $table->timestamps();
         });
 
