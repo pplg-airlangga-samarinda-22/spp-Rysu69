@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class spp extends Model
 {
-    //
+        protected $fillable = ['tahun', 'nominal'];
 }

@@ -53,7 +53,7 @@ class UserResource extends Resource
                 Forms\Components\Select::make('id_spp')
                     ->label('Tahun spp')
                     ->options(
-                        \App\Models\kelas::all()->pluck('tahun', 'id')
+                        \App\Models\spp::all()->pluck('tahun', 'id')
                     )
                     ->required(),
             ]);

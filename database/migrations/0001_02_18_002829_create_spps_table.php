@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('spps', function (Blueprint $table) {
             $table->id();
-            $table->decimal('tahun', 11);
+            $table->integer('tahun');
             $table->decimal('nominal', 11);
             $table->timestamps();
         });

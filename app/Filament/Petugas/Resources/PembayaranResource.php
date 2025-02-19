@@ -24,9 +24,12 @@ class PembayaranResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id_petugas')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('id_petugas')
+                    ->label('Petugas')
+                    ->options(
+                        \App\Models\petugas::all()->pluck('name', 'id')
+                    )
+                    ->required(),
                 Forms\Components\TextInput::make('nisn')
                     ->required()
                     ->maxLength(255),
@@ -38,9 +41,12 @@ class PembayaranResource extends Resource
                 Forms\Components\TextInput::make('tahun_dibayar')
                     ->required()
                     ->maxLength(4),
-                Forms\Components\TextInput::make('id_spp')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('id_spp')
+                    ->label('Tahun spp')
+                    ->options(
+                        \App\Models\spp::all()->pluck('tahun', 'id')
+                    )
+                    ->required(),
                 Forms\Components\TextInput::make('jumlah_bayar')
                     ->required()
                     ->numeric(),
